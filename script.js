@@ -19,6 +19,16 @@ document.querySelector('[data-request-headers-btn]').addEventListener('click', (
 queryParamsContainer.append(createKeyValuePair())
 requestHeadersContainer.append(createKeyValuePair())
 
+axios.interceptors.request.use(request => {
+	request.customData = request.customData || {}
+	request.customData.startTime = new Date().getTime();
+	return request;
+});
+
+axios.interceptors.request.use(updateEndTime, e => {
+	Promise.reject(updateEndTime(e.response));
+})
+
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
 	axios({
@@ -26,13 +36,17 @@ form.addEventListener('submit', (e) => {
 		method: document.querySelector('[data-method]').value,
 		params: keyValuesToObject(queryParamsContainer),
 		headers: keyValuesToObject(requestHeadersContainer),
-	}).then(res => {
+	}).catch(err => err).then(res => {
 		document.querySelector('[data-response-section]').classList.remove('d-none')
-		// updateResponseDetails(res)
+		updateResponseDetails(res)
 		// updateResponseEditor(res.data)
 		updateResponseHeaders(res.headers)
 	})
 });
+
+function updateResponseDetails(response) {
+	document.querySelector('[data-status]').textContent = response.status;
+}
 
 function updateResponseHeaders(headers) {
 	responseHeadersContainer.innerHTML = "";

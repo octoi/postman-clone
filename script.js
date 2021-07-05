@@ -2,6 +2,7 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
 import prettyBytes from "pretty-bytes";
+import setupEditors from "./setupEditor";
 
 const form = document.querySelector('[data-form]')
 const queryParamsContainer = document.querySelector('[data-query-params]')
@@ -37,6 +38,8 @@ axios.interceptors.response.use(updateEndTime, e => {
 	return Promise.reject(updateEndTime(e.response))
 })
 
+const { requestEditor, updateResponseEditor } = setupEditors();
+
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
 	axios({
@@ -47,7 +50,7 @@ form.addEventListener('submit', (e) => {
 	}).catch(err => err).then(res => {
 		document.querySelector('[data-response-section]').classList.remove('d-none')
 		updateResponseDetails(res)
-		// updateResponseEditor(res.data)
+		updateResponseEditor(res.data)
 		updateResponseHeaders(res.headers)
 	})
 });

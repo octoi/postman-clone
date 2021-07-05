@@ -5,6 +5,10 @@ const queryParamsContainer = document.querySelector('[data-query-params]')
 const requestHeadersContainer = document.querySelector('[data-request-headers]')
 const keyValueTemplate = document.querySelector('[data-key-value-template]');
 
+document.querySelector('[data-query-param-btn]').addEventListener('click', () => {
+	queryParamsContainer.append(createKeyValuePair())
+});
+
 queryParamsContainer.append(createKeyValuePair())
 requestHeadersContainer.append(createKeyValuePair())
 

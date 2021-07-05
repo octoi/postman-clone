@@ -11,8 +11,76 @@
 
 <body>
 	<div class="p-4">
+		<form data-form>
+			<div class="input-group mb-4">
+				<select class="form-select flex-grow-0 w-auto" data-method>
+					<option value="GET" selected>GET</option>
+					<option value="POST">POST</option>
+					<option value="PUT">PUT</option>
+					<option value="PATCH">PATCH</option>
+					<option value="DELETE">DELETE</option>
+				</select>
+				<input data-url type="text" required class="form-control" type="url"
+					placeholder="https://example.com/api">
+				<button type="submit" class="btn btn-primary">Send</button>
+			</div>
 
+			<ul class="nav nav-tabs" role="tablist">
+
+				<li class="nav-item" role="presentation">
+					<button class="nav-link active" id="query-params-tab" data-bs-toggle="tab"
+						data-bs-target="#query-params" type="button" role="tab" aria-controls="query params"
+						aria-selected="true">
+						Query Params
+					</button>
+				</li>
+
+				<li class="nav-item" role="presentation">
+					<button class="nav-link" id="request-headers-tab" data-bs-toggle="tab"
+						data-bs-target="#request-headers" type="button" role="tab" aria-controls="query params"
+						aria-selected="false">
+						Headers
+					</button>
+				</li>
+
+				<li class="nav-item" role="presentation">
+					<button class="nav-link" id="json-tab" data-bs-toggle="tab" data-bs-target="#json" type="button"
+						role="tab" aria-controls="query params" aria-selected="false">
+						Json
+					</button>
+				</li>
+
+			</ul>
+
+			<div class="tab-content p-3 border-top-0 border">
+
+				<div class="tab-pane fade show active" id="query-params" role="tabpanel"
+					aria-labelledby="query-params-tab">
+					<div data-query-params></div>
+					<button data-query-param-btn class="btn btn-outline-success mt-2" type="button">Add</button>
+				</div>
+
+				<div class="tab-pane fade" id="request-headers" role="tabpanel" aria-labelledby="query-params-tab">
+					<div data-request-headers></div>
+					<button data-request-headers-btn class="btn btn-outline-success mt-2" type="button">Add</button>
+				</div>
+
+				<div class="tab-pane fade" id="json" role="tabpanel" aria-labelledby="query-params-tab">
+					<div data-json-request-body class="overflow-auto" style="max-height: 200px;"></div>
+				</div>
+
+			</div>
+		</form>
 	</div>
+
+	<template data-key-value-template>
+		<div class="input-group my-2" data-key-value-pair>
+			<input type="text" data-key class="form-control" placeholder="Key">
+			<input type="text" data-value class="form-control" placeholder="Value">
+			<button type="button" class="btn btn-outline-danger" data-remove-btn>REMOVE</button>
+		</div>
+	</template>
+
 </body>
 
 </html>

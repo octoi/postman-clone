@@ -57,6 +57,7 @@ form.addEventListener('submit', (e) => {
 		method: document.querySelector('[data-method]').value,
 		params: keyValuesToObject(queryParamsContainer),
 		headers: keyValuesToObject(requestHeadersContainer),
+		data,
 	}).catch(err => err).then(res => {
 		document.querySelector('[data-response-section]').classList.remove('d-none')
 		updateResponseDetails(res)

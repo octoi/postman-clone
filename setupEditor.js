@@ -30,5 +30,15 @@ export default function setupEditors() {
 		parent: jsonResponseBody,
 	});
 
-	return { requestEditor, responseEditor };
+	function updateResponseEditor(value) {
+		responseEditor.dispatch({
+			changes: {
+				from: 0,
+				to: responseEditor.state.doc.length,
+				insert: JSON.stringify(value, null, 2)
+			}
+		});
+	}
+
+	return { requestEditor, responseEditor, updateResponseEditor };
 }

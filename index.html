@@ -25,6 +25,7 @@
 			</div>
 
 			<ul class="nav nav-tabs" role="tablist">
+
 				<li class="nav-item" role="presentation">
 					<button class="nav-link active" id="query-params-tab" data-bs-toggle="tab"
 						data-bs-target="#query-params" type="button" role="tab" aria-controls="query params"
@@ -32,6 +33,7 @@
 						Query Params
 					</button>
 				</li>
+
 				<li class="nav-item" role="presentation">
 					<button class="nav-link" id="request-headers-tab" data-bs-toggle="tab"
 						data-bs-target="#request-headers" type="button" role="tab" aria-controls="query params"
@@ -39,13 +41,34 @@
 						Headers
 					</button>
 				</li>
+
 				<li class="nav-item" role="presentation">
 					<button class="nav-link" id="json-tab" data-bs-toggle="tab" data-bs-target="#json" type="button"
 						role="tab" aria-controls="query params" aria-selected="false">
 						Json
 					</button>
 				</li>
+
 			</ul>
+
+			<div class="tab-content p-3 border-top-0 border">
+
+				<div class="tab-pane fade show active" id="query-params" role="tabpanel"
+					aria-labelledby="query-params-tab">
+					<div data-query-params></div>
+					<button data-query-param-btn class="btn btn-outline-success mt-2" type="button">Add</button>
+				</div>
+
+				<div class="tab-pane fade" id="request-headers" role="tabpanel" aria-labelledby="query-params-tab">
+					<div data-request-headers></div>
+					<button data-request-headers-btn class="btn btn-outline-success mt-2" type="button">Add</button>
+				</div>
+
+				<div class="tab-pane fade" id="json" role="tabpanel" aria-labelledby="query-params-tab">
+					<div data-json-request-body class="overflow-auto" style="max-height: 200px;"></div>
+				</div>
+
+			</div>
 		</form>
 	</div>
 </body>

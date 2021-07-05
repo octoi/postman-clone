@@ -25,7 +25,9 @@ form.addEventListener('submit', (e) => {
 		method: document.querySelector('[data-method]').value,
 		params: keyValuesToObject(queryParamsContainer),
 		headers: keyValuesToObject(requestHeadersContainer),
-	}).then()
+	}).then(res => {
+		console.log(res.data)
+	})
 });
 
 function createKeyValuePair() {
@@ -37,12 +39,12 @@ function createKeyValuePair() {
 }
 
 function keyValuesToObject(container) {
-	const pairs = container.querySelectorAll('[data-key-value-pair]');
+	const pairs = container.querySelectorAll("[data-key-value-pair]")
 	return [...pairs].reduce((data, pair) => {
-		const key = pair.querySelector(['data-key'])
-		const value = pair.querySelector(['data-value'])
+		const key = pair.querySelector("[data-key]").value
+		const value = pair.querySelector("[data-value]").value
 
-		if (key === '') return data;
+		if (key === "") return data
 		return { ...data, [key]: value }
-	}, {});
+	}, {})
 }

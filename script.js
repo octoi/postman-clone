@@ -9,6 +9,10 @@ document.querySelector('[data-query-param-btn]').addEventListener('click', () =>
 	queryParamsContainer.append(createKeyValuePair())
 });
 
+document.querySelector('[data-request-headers-btn]').addEventListener('click', () => {
+	requestHeadersContainer.append(createKeyValuePair())
+});
+
 queryParamsContainer.append(createKeyValuePair())
 requestHeadersContainer.append(createKeyValuePair())
 

@@ -1,0 +1,28 @@
+{
+  "name": "postman-clone",
+  "version": "1.0.0",
+  "description": "Postman clone  🦸‍♂️",
+  "main": "index.js",
+  "scripts": {
+    "start": "snowpack dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fadhilsaheer/postman-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fadhilsaheer/postman-clone/issues"
+  },
+  "homepage": "https://github.com/fadhilsaheer/postman-clone#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.9.2",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.2"
+  },
+  "devDependencies": {
+    "snowpack": "^3.7.1"
+  }
+}

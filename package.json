@@ -1,0 +1,26 @@
+{
+  "name": "postman-clone",
+  "version": "1.0.0",
+  "description": "Postman clone  🦸‍♂️",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fadhilsaheer/postman-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fadhilsaheer/postman-clone/issues"
+  },
+  "homepage": "https://github.com/fadhilsaheer/postman-clone#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "snowpack": "^3.7.1"
+  }
+}

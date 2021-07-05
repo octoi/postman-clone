@@ -21,12 +21,19 @@ requestHeadersContainer.append(createKeyValuePair())
 
 axios.interceptors.request.use(request => {
 	request.customData = request.customData || {}
-	request.customData.startTime = new Date().getTime();
-	return request;
-});
+	request.customData.startTime = new Date().getTime()
+	return request
+})
 
-axios.interceptors.request.use(updateEndTime, e => {
-	Promise.reject(updateEndTime(e.response));
+function updateEndTime(response) {
+	response.customData = response.customData || {}
+	response.customData.time =
+		new Date().getTime() - response.config.customData.startTime
+	return response
+}
+
+axios.interceptors.response.use(updateEndTime, e => {
+	return Promise.reject(updateEndTime(e.response))
 })
 
 form.addEventListener('submit', (e) => {
@@ -44,8 +51,10 @@ form.addEventListener('submit', (e) => {
 	})
 });
 
+
 function updateResponseDetails(response) {
-	document.querySelector('[data-status]').textContent = response.status;
+	document.querySelector("[data-status]").textContent = response.status
+	document.querySelector("[data-time]").textContent = response.customData.time
 }
 
 function updateResponseHeaders(headers) {

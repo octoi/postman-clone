@@ -4,7 +4,7 @@
   "description": "Postman clone  🦸‍♂️",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "snowpack dev"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/fadhilsaheer/postman-clone#readme",
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.2"
   },
   "devDependencies": {
     "snowpack": "^3.7.1"
